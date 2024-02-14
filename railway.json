@@ -4,7 +4,7 @@
         "builder": "DOCKERFILE"
     },
     "deploy": {
-        "startCommand": "python manage.py collectstatic --noinput --clear && python manage.py migrate && gunicorn backend.wsgi",
+        "startCommand": "gunicorn backend.wsgi",
         "restartPolicyType": "ON_FAILURE",
         "restartPolicyMaxRetries": 1
     }
