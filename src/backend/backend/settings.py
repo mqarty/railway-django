@@ -151,7 +151,9 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_DIRS = BASE_DIR / "static"
+STATICFILES_DIRS = [
+    str(BASE_DIR / "static"),
+]
 
 SERVE_STATIC_FILES_LOCALLY = env.bool("SERVE_STATIC_FILES_LOCALLY", True)
 # if IS_LAMBDA:
