@@ -26,6 +26,10 @@ print("############################################################\n")
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+print("\n############################################################")
+print(f"BASE_DIR is {BASE_DIR}")
+print("############################################################\n")
+
 FIXTURE_DIRS = [
     "fixtures",
 ]
