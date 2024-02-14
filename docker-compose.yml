@@ -15,7 +15,7 @@ services:
   api:
     <<: *default-app
     working_dir: /var/task/src/backend
-    command: python manage.py runserver 0.0.0.0:9000
+    command: ./manage.py runserver 0.0.0.0:9000
     env_file:
       - src/backend/.env
     ports:

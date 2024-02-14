@@ -26,10 +26,6 @@ print("############################################################\n")
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-print("\n############################################################")
-print(f"BASE_DIR is {BASE_DIR}")
-print("############################################################\n")
-
 FIXTURE_DIRS = [
     "fixtures",
 ]
@@ -155,9 +151,6 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_DIRS = [
-    str(BASE_DIR / "static"),
-]
 
 SERVE_STATIC_FILES_LOCALLY = env.bool("SERVE_STATIC_FILES_LOCALLY", True)
 # if IS_LAMBDA:

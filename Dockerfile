@@ -17,4 +17,4 @@ COPY src/backend/manage.py manage.py
 COPY src/backend/backend backend
 
 # Create static directory
-RUN mkdir -p static
+RUN mkdir -p staticfiles
