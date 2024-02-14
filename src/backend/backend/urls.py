@@ -24,7 +24,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
 ]
 
-if not settings.IS_LAMBDA:
-    urlpatterns = urlpatterns + static(
-        settings.STATIC_URL, document_root=settings.STATIC_ROOT
-    )
+# Static Content
+urlpatterns = urlpatterns + static(
+    settings.STATIC_URL, document_root=settings.STATIC_ROOT
+)
