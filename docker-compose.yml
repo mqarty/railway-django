@@ -14,8 +14,9 @@ x-app: &default-app
 services:
   api:
     <<: *default-app
+    working_dir: /var/task/src/backend
     command: python manage.py runserver 0.0.0.0:9000
     env_file:
-      - .env
+      - src/backend/.env
     ports:
       - "9000:9000"
