@@ -19,12 +19,9 @@ env = Env()
 
 ENV = env.str("ENV", "local")
 
-IS_LAMBDA = env.str("LAMBDA_TASK_ROOT", None)
-
-if not IS_LAMBDA:
-    print("\n############################################################")
-    print(f"Running as {ENV.upper()} environment")
-    print("############################################################\n")
+print("\n############################################################")
+print(f"Running as {ENV.upper()} environment")
+print("############################################################\n")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -154,37 +151,38 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = BASE_DIR / "static"
 
 SERVE_STATIC_FILES_LOCALLY = env.bool("SERVE_STATIC_FILES_LOCALLY", True)
-if IS_LAMBDA:
-    SERVE_STATIC_FILES_LOCALLY = False
+# if IS_LAMBDA:
+#     SERVE_STATIC_FILES_LOCALLY = False
 
-if not SERVE_STATIC_FILES_LOCALLY:
-    STORAGES = {
-        "default": {
-            "BACKEND": "storages.backends.s3.S3Storage",
-            "OPTIONS": {},
-        },
-        "staticfiles": {
-            "BACKEND": "storages.backends.s3.S3Storage",
-            "OPTIONS": {
-                "bucket_name": env.str(
-                    "AWS_STATIC_STORAGE_BUCKET_NAME",
-                    env.str("AWS_STATIC_STORAGE_BUCKET_NAME"),
-                ),
-                "location": ENV,
-                "region_name": env.str("AWS_DEFAULT_REGION", "us-west-1"),
-                "gzip": True,
-                "object_parameters": {
-                    "CacheControl": "max-age=86400",
-                },
-            },
-        },
-    }
-else:
-    print("\n############################################################")
-    print(f"Static Files Served Locally is {SERVE_STATIC_FILES_LOCALLY}")
-    print("############################################################\n")
+# if not SERVE_STATIC_FILES_LOCALLY:
+#     STORAGES = {
+#         "default": {
+#             "BACKEND": "storages.backends.s3.S3Storage",
+#             "OPTIONS": {},
+#         },
+#         "staticfiles": {
+#             "BACKEND": "storages.backends.s3.S3Storage",
+#             "OPTIONS": {
+#                 "bucket_name": env.str(
+#                     "AWS_STATIC_STORAGE_BUCKET_NAME",
+#                     env.str("AWS_STATIC_STORAGE_BUCKET_NAME"),
+#                 ),
+#                 "location": ENV,
+#                 "region_name": env.str("AWS_DEFAULT_REGION", "us-west-1"),
+#                 "gzip": True,
+#                 "object_parameters": {
+#                     "CacheControl": "max-age=86400",
+#                 },
+#             },
+#         },
+#     }
+# else:
+#     print("\n############################################################")
+#     print(f"Static Files Served Locally is {SERVE_STATIC_FILES_LOCALLY}")
+#     print("############################################################\n")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
