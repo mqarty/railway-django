@@ -9,12 +9,12 @@ ENV FUNCTION_DIR=${FUNCTION_DIR}
 
 WORKDIR ${FUNCTION_DIR}
 
+# Create static directory
+RUN mkdir -p static
+
 # Install requirements
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 COPY manage.py manage.py
 COPY backend/ backend/
-
-# Create static directory
-RUN mkdir -p static
