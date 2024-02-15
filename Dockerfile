@@ -15,6 +15,4 @@ RUN pip install -r requirements.txt
 
 COPY src/backend/manage.py manage.py
 COPY src/backend/backend backend
-
-# Create static directory
-RUN mkdir -p staticfiles
+COPY src/backend/staticfiles staticfiles

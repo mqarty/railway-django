@@ -41,6 +41,7 @@ SECRET_KEY = "django-insecure-=f+a2*k6cxl14e$+h*1m1waizb4*-43t%es^2jx)(^j$x=5km%
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["*"]
 
 INSTALLED_APPS = [
     "unfold",  # First third-party app
