@@ -42,7 +42,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = [
-    ".railway.app",
+    "https://*.railway.app",
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
