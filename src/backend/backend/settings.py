@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+from corsheaders.defaults import default_headers
 from django.utils.translation import gettext_lazy as _
 from environs import Env
 
@@ -41,7 +42,15 @@ SECRET_KEY = "django-insecure-=f+a2*k6cxl14e$+h*1m1waizb4*-43t%es^2jx)(^j$x=5km%
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ["https://*.railway.app"]
+CSRF_TRUSTED_ORIGINS = [
+    ".railway.app",
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = list(default_headers) + ["sentry-trace"]
+
+CSRF_COOKIE_NAME = "csrftoken"
 
 INSTALLED_APPS = [
     "unfold",  # First third-party app
