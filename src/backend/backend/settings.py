@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
-from corsheaders.defaults import default_headers
 from django.utils.translation import gettext_lazy as _
 from environs import Env
 
@@ -48,7 +47,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_HEADERS = list(default_headers) + ["sentry-trace"]
+# CORS_ALLOW_HEADERS = list(default_headers) + ["sentry-trace"]
 
 CSRF_COOKIE_NAME = "csrftoken"
 
